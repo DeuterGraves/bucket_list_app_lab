@@ -10,17 +10,20 @@ db.bucket_list.insertMany([
     description: "Travel from Capadocia to Kathmandu via hot air balloon.",
     location: "Capadocia",
     deadline: "Before age 65",
-    image: "https://r.hswstatic.com/w_907/gif/podcasts/stuffyoushouldknow-podcasts-wp-content-uploads-sites-16-2015-08-hotairballoons600x350.jpg"
+    image: "https://r.hswstatic.com/w_907/gif/podcasts/stuffyoushouldknow-podcasts-wp-content-uploads-sites-16-2015-08-hotairballoons600x350.jpg",
+    status: "pending"
   },
   {
     title: "Swim with the Sharks!",
     description: "Go to the bahamas and swim with the sharks on a cruise.",
     location: "Bahamas",
-    deadline: 2019
+    deadline: 2019,
+    status: "pending"
   },
   {
     title: "Read Moby Dick",
     description: "Read Moby Dick and see what all the fuss is about.",
-    image: "https://cdn.shopify.com/s/files/1/0036/2812/products/Moby_blue.jpg"
+    image: "https://cdn.shopify.com/s/files/1/0036/2812/products/Moby_blue.jpg",
+    status: "pending"
   }
 ]);

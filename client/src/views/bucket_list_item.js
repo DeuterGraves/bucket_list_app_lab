@@ -10,6 +10,7 @@ BucketListItemView.prototype.render = function (bucketListItem) {
   bucketListItemContainer.id = 'list-item';
 
   const title = this.createHeading(bucketListItem.title);
+  title.classList.add("item-title")
   // append item created with create heading to the container
 
 // console.log("render called", bucketListItem.title);
@@ -35,14 +36,19 @@ if (!bucketListItem.image){
 }
 
 
+// create delete button
+  const deleteButton = this.createDeleteButton(bucketListItem._id);
+
+
 const lineBreak = document.createElement("hr")
 
 bucketListItemContainer.appendChild(title);
+bucketListItemContainer.appendChild(lineBreak)
 bucketListItemContainer.appendChild(description)
 bucketListItemContainer.appendChild(location)
 bucketListItemContainer.appendChild(deadline)
 bucketListItemContainer.appendChild(image)
-bucketListItemContainer.appendChild(lineBreak)
+bucketListItemContainer.appendChild(deleteButton)
 
 // append this conatiner to the document
 this.container.appendChild(bucketListItemContainer)
@@ -63,13 +69,6 @@ BucketListItemView.prototype.createTextElement = function (elementType, text) {
 };
 
 
-
-
-//  refactor attempt
-// location - not all
-
-
-
 BucketListItemView.prototype.ifCreateTextElement = function (elementType, dataAccessed) {
 
 const element = document.createElement(elementType);
@@ -81,6 +80,20 @@ if (!dataAccessed){
 }
  return element
 };
+
+BucketListItemView.prototype.createDeleteButton = function (bucketListID) {
+  const button = document.createElement("button");
+  // button.setAttribute("value", "delete")
+  button.classList.add("delete-btn")
+  button.value = bucketListID
+
+  button.addEventListener("click", (event)=> {
+    PubSub.publish("BucketListItem:bucketListItem-delete-clicked", event.target.value)
+  });
+  return button;
+};
+
+
 
 
 module.exports = BucketListItemView;
