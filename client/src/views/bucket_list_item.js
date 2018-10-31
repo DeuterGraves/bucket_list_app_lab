@@ -19,10 +19,10 @@ BucketListItemView.prototype.render = function (bucketListItem) {
   const description = this.createTextElement("p", bucketListItem.description)
 
 // location - not all
-const location = this.ifCreateTextElement("p", bucketListItem.location)
+const location = this.ifCreateTextElement("p", "Location", bucketListItem.location)
 
 //  deadline - not all
-const deadline = this.ifCreateTextElement("p", bucketListItem.deadline)
+const deadline = this.ifCreateTextElement("p", "Deadline", bucketListItem.deadline)
 
 // image - not all
 const image = document.createElement("img");
@@ -69,14 +69,14 @@ BucketListItemView.prototype.createTextElement = function (elementType, text) {
 };
 
 
-BucketListItemView.prototype.ifCreateTextElement = function (elementType, dataAccessed) {
+BucketListItemView.prototype.ifCreateTextElement = function (elementType, label, dataAccessed) {
 
 const element = document.createElement(elementType);
 if (!dataAccessed){
   element.textContent = ""
 }else{
   // call createTextElement if there is content - pass elementType and text
-  element.textContent = dataAccessed
+  element.textContent = `${label}: ${dataAccessed}  `
 }
  return element
 };

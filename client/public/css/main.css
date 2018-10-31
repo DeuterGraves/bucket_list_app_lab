@@ -6,7 +6,7 @@ body{
   background-color: #C5DDE9;
   font-family: "futura";
   background: url(../images/bucketListBG.jpg);
-
+  background-attachment: fixed;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
 }
 
 #list-item{
-  background-color: rgba(69,165,216, .3);
+  background-color: rgba(69,165,216, .6);
   /* border-color: #9EE493; */
   border: 2px solid #9EE493;
   border-radius: 10px;
