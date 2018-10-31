@@ -18,13 +18,7 @@ BucketListItemView.prototype.render = function (bucketListItem) {
   const description = this.createTextElement("p", bucketListItem.description)
 
 // location - not all
-const location = document.createElement("p");
-if (!bucketListItem.location){
-  location.textContent = ""
-}else{
-  // call createTextElement if there is content - pass elementType and text
-  location.textContent = `Location: ${bucketListItem.location} `
-}
+const location = this.ifCreateTextElement("p", bucketListItem.location)
 //  deadline - not all
 const deadline = document.createElement("p");
 if (!bucketListItem.deadline){
@@ -71,7 +65,27 @@ BucketListItemView.prototype.createTextElement = function (elementType, text) {
   const element = document.createElement(elementType);
   element.textContent = text;
   return element;
-
 };
+
+
+
+
+//  refactor attempt
+// location - not all
+
+
+
+BucketListItemView.prototype.ifCreateTextElement = function (elementType, dataAccessed) {
+
+const element = document.createElement(elementType);
+if (!dataAccessed){
+  element.textContent = ""
+}else{
+  // call createTextElement if there is content - pass elementType and text
+  element.textContent = dataAccessed
+}
+ return element
+};
+
 
 module.exports = BucketListItemView;
