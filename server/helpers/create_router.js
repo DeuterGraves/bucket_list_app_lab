@@ -23,9 +23,9 @@ const createRouter = function (collection) {
 
   // CREATE
   router.post("/", (req, res) => {
-    const newGame = req.body
+    const newBucketListItem = req.body
     collection
-    .insertOne(newGame)
+    .insertOne(newBucketListItem)
     .then(() => {
       collection
       .find()

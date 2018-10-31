@@ -19,14 +19,9 @@ BucketListItemView.prototype.render = function (bucketListItem) {
 
 // location - not all
 const location = this.ifCreateTextElement("p", bucketListItem.location)
+
 //  deadline - not all
-const deadline = document.createElement("p");
-if (!bucketListItem.deadline){
-  deadline.textContent = ""
-}else{
-  // call createTextElement if there is content - pass elementType and text
-  deadline.textContent = `Deadline: ${bucketListItem.deadline} `
-}
+const deadline = this.ifCreateTextElement("p", bucketListItem.deadline)
 
 // image - not all
 const image = document.createElement("img");
